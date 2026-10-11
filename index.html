@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1769ff">
+  <title>NOVA — Connect with your world</title>
+  <meta name="description" content="NOVA is a social space to share updates, photos, and ideas with your community.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="NOVA home"><span class="brand-mark">N</span><span>NOVA</span></a>
+      <label class="search"><span aria-hidden="true">⌕</span><input id="globalSearch" type="search" placeholder="Search NOVA" aria-label="Search posts"></label>
+      <nav class="top-actions" aria-label="Main navigation">
+        <button class="icon-btn active" data-view="feed" aria-label="Home" title="Home">⌂</button>
+        <button class="icon-btn" data-view="friends" aria-label="Friends" title="Friends">♧</button>
+        <button class="icon-btn" data-view="messages" aria-label="Messages" title="Messages">▤</button>
+        <button class="icon-btn" data-view="notifications" aria-label="Notifications" title="Notifications">♧<i id="notificationDot"></i></button>
+      </nav>
+      <button class="avatar avatar-top" id="profileButton" aria-label="Open profile">Y</button>
+    </header>
+    <div class="layout">
+      <aside class="sidebar left-sidebar">
+        <div class="mini-profile"><div class="avatar big">Y</div><div><strong id="sidebarName">Your Name</strong><small id="sidebarHandle">@you</small></div></div>
+        <button class="side-link selected" data-view="feed"><span>⌂</span> News Feed</button>
+        <button class="side-link" data-view="profile"><span>◉</span> My Profile</button>
+        <button class="side-link" data-view="friends"><span>♧</span> Friends</button>
+        <button class="side-link" data-view="messages"><span>▤</span> Messages</button>
+        <button class="side-link" data-view="saved"><span>☆</span> Saved posts</button>
+        <div class="side-note"><strong>Your space. Your people.</strong><p>Share moments, ideas and updates with your community.</p></div>
+        <small class="muted">NOVA demo · <span id="year"></span></small>
+      </aside>
+      <main id="mainContent" class="main-content">
+        <section class="stories card">
+          <div class="section-heading"><h2>Stories</h2><span class="muted">Little moments</span></div>
+          <div class="story-row" id="storiesRow">
+            <button class="story add-story" id="addStory"><span class="story-plus">＋</span><span>Add story</span></button>
+            <button class="story story-sample" data-story="Amina"><span class="story-avatar">A</span><span>Amina</span></button>
+            <button class="story story-sample story-two" data-story="David"><span class="story-avatar">D</span><span>David</span></button>
+            <button class="story story-sample story-three" data-story="Mira"><span class="story-avatar">M</span><span>Mira</span></button>
+            <button class="story story-sample story-four" data-story="Kevin"><span class="story-avatar">K</span><span>Kevin</span></button>
+          </div>
+        </section>
+        <section class="composer card">
+          <div class="composer-top"><div class="avatar">Y</div><button class="composer-prompt" id="focusPost">What’s on your mind?</button></div>
+          <textarea id="postText" rows="2" placeholder="Share something with your community…"></textarea>
+          <div class="composer-bottom"><label class="upload-label">▧ Photo <input id="photoInput" type="file" accept="image/*" hidden></label><span id="photoName" class="muted"></span><button class="primary-btn" id="publishPost">Publish post</button></div>
+        </section>
+        <div class="feed-title"><h1>News Feed</h1><button class="text-btn" id="sortPosts">Latest first ↓</button></div>
+        <div id="feed" class="feed"></div>
+      </main>
+      <aside class="sidebar right-sidebar">
+        <section class="card trends"><div class="section-heading"><h2>Trending</h2><span>•••</span></div>
+          <button class="trend" data-search="community"><small>Community · Trending</small><strong>#NOVACommunity</strong><span>Join the conversation</span></button>
+          <button class="trend" data-search="weekend"><small>Everyday life · Popular</small><strong>#WeekendMoments</strong><span>Share your highlights</span></button>
+          <button class="trend" data-search="learning"><small>Ideas · Popular</small><strong>#KeepLearning</strong><span>Good ideas grow here</span></button>
+        </section>
+        <section class="card people"><div class="section-heading"><h2>People you may know</h2></div>
+          <div class="person"><div class="avatar peach">A</div><div class="person-info"><strong>Amina Bello</strong><small>3 mutual friends</small></div><button class="follow-btn" data-person="Amina Bello">＋ Add</button></div>
+          <div class="person"><div class="avatar lilac">D</div><div class="person-info"><strong>David M.</strong><small>2 mutual friends</small></div><button class="follow-btn" data-person="David M.">＋ Add</button></div>
+          <div class="person"><div class="avatar mint">M</div><div class="person-info"><strong>Mira T.</strong><small>5 mutual friends</small></div><button class="follow-btn" data-person="Mira T.">＋ Add</button></div>
+        </section>
+        <section class="privacy-note"><span>🔒</span><p><strong>Your privacy matters.</strong><br>Demo content stays in this browser. Add a secure backend before inviting real users.</p></section>
+      </aside>
+    </div>
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      <button class="active" data-view="feed">⌂<small>Home</small></button><button data-view="friends">♧<small>Friends</small></button><button data-view="messages">▤<small>Messages</small></button><button data-view="profile">◉<small>Profile</small></button>
+    </nav>
+  </div>
+  <dialog id="modal" class="modal"><form method="dialog"><button class="modal-close" aria-label="Close">×</button></form><div id="modalContent"></div></dialog>
+  <div id="toast" role="status" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
